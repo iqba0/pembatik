@@ -22,12 +22,6 @@ body {
   color: #fff;
 }
 
-.navbar img {
-  width: 180px;  /* Atur lebar gambar */
-  height: auto;  /* Menyesuaikan tinggi secara proporsional */
-}
-
-
 /* Navbar */
 .navbar {
   display: flex;
@@ -45,10 +39,9 @@ body {
 }
 
 .navbar img {
-  width: 400px; /* Atur lebar gambar */
-  height: auto; /* Menyesuaikan tinggi secara proporsional */
+  width: 300px; /* Adjust image width */
+  height: auto; /* Maintain proportional height */
 }
-
 
 .navbar .navbar-nav a {
   color: #fff;
@@ -88,7 +81,6 @@ body {
 }
 
 /* Navbar search form */
-
 .navbar .search-form {
   position: absolute;
   top: 100%;
@@ -98,16 +90,15 @@ body {
   height: 5rem;
   display: flex;
   align-items: center;
-  transform: scaleY(0);   /* Sembunyikan form secara default */
+  transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.3s ease;
   overflow: hidden;
 }
 
 .navbar .search-form.active {
-  transform: scaleY(1);  /* Munculkan form saat class active */
+  transform: scaleY(1);
 }
-
 
 .navbar .search-form a {
   cursor: pointer;
@@ -118,8 +109,6 @@ body {
 .navbar .search-form a:hover {
   color: var(--primary);
 }
-
-
 
 .navbar .search-form input {
   height: 100%;
@@ -136,24 +125,25 @@ body {
   color: var(--bg);
 }
 
+/* Responsive navbar search form */
 @media (max-width: 768px) {
   .navbar .search-form {
-    width: 90%;  /* Lebar form pencarian lebih kecil pada layar mobile */
+    width: 90%;
     right: 2rem;
   }
 }
 
+/* Highlight search results */
 .highlight {
-  background-color: yellow; /* Sorot hasil pencarian */
+  background-color: yellow;
 }
 
-
-/* Sesuaikan margin-top pada video-container */
+/* Video container */
 .video-container {
   position: relative;
-  width: 100%; /* Video memenuhi lebar kontainer */
-  max-width: 1280px; /* Batas maksimal lebar video */
-  margin: 100px auto 0 auto; /* Menambahkan margin-top sesuai dengan tinggi navbar */
+  width: 100%;
+  max-width: 1280px;
+  margin: 100px auto 0;
   padding: 10px;
   border-bottom: 1px solid #0c192e;
 }
@@ -181,41 +171,38 @@ body {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-
-/* Tambahkan ini jika ukuran navbar berubah pada ukuran layar tertentu */
+/* Adjust video-container margin-top on mobile */
 @media (max-width: 768px) {
   .video-container {
-    margin-top: 120px; /* Sesuaikan jika navbar lebih besar pada layar kecil */
+    margin-top: 120px;
   }
 }
 
-
 video {
-  width: 100%; /* Video akan menyesuaikan dengan lebar kontainer */
-  height: auto; /* Tinggi video menyesuaikan secara otomatis */
-  border-radius: 10px; /* Membuat sudut video melengkung */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Menambahkan bayangan */
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Media queries untuk perangkat dengan ukuran layar yang berbeda */
+/* Responsive video container */
 @media (max-width: 1280px) {
   .video-container {
-      padding: 5px; /* Kurangi padding untuk layar lebih kecil */
+    padding: 5px;
   }
 }
 
 @media (max-width: 800px) {
   .video-container {
-      padding: 2px; /* Padding minimal untuk layar yang sangat kecil */
+    padding: 2px;
   }
 
   video {
-      max-height: 360px; /* Maksimal tinggi video untuk perangkat lebih kecil */
+    max-height: 360px;
   }
 }
 
-
-/* About Section */
+/* Section styles */
 .about,
 .menu,
 .products,
@@ -238,10 +225,6 @@ video {
 .contact h2 span {
   color: var(--primary);
 }
-
-
-/* Products Section */
-
 
 /* Footer */
 footer {
@@ -282,6 +265,7 @@ footer .credit a {
   color: var(--bg);
   font-weight: 700;
 }
+
 /* Media Queries */
 /* Laptop */
 @media (max-width: 1366px) {
@@ -329,10 +313,4 @@ footer .credit a {
   .navbar .navbar-nav a:hover::after {
     transform: scaleX(0.2);
   }
-
-  .navbar .search-form {
-    width: 90%;
-    right: 2rem;
-  }
-
-  
+}
