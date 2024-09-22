@@ -1,0 +1,22 @@
+.socials {
+    display: flex;
+    gap: 1.5rem; /* Jarak antar ikon */
+    justify-content: center; /* Ikon berada di tengah */
+    align-items: center;
+  }
+  
+  .socials a {
+    display: inline-block;
+    color: #fff; /* Warna ikon */
+    transition: color 0.3s ease;
+  }
+  
+  .socials a:hover {
+    color: var(--primary); /* Ubah warna saat hover */
+  }
+  
+  .socials svg {
+    width: 24px; /* Ukuran ikon TikTok */
+    height: 24px;
+  }
+  
