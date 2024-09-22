@@ -31,6 +31,7 @@
   .referensi-item {
     background-color: #222;
     padding: 2rem;
+    
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 400px;
@@ -43,14 +44,14 @@
   }
   
   .referensi-item h4 {
-    font-size: 1.8rem;
+    font-size: 1.1rem;
     color: #fff;
     margin-bottom: 1rem;
     text-align: center;
   }
   
   .referensi-item p {
-    font-size: 1.3rem;
+    font-size: 1rem; /* Ubah angka ini untuk mengatur ukuran font */
     color: #ccc;
     line-height: 1.6;
   }

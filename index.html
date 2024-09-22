@@ -22,44 +22,75 @@
   <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/produk.css">
   <link rel="stylesheet" href="css/referensi.css">
+
+  <!-- Tambahan Style untuk Judul di Bawah Video dan Materi -->
+  <style>
+    /* Style untuk judul konten di bawah video dan materi */
+    .menu-card h3 {
+      font-size: 1.6rem; /* Ukuran font yang sesuai */
+      font-weight: 600; /* Font tebal agar judul terlihat jelas */
+      color: #333; /* Warna font yang kontras */
+      text-align: center; /* Judul berada di tengah */
+      margin-top: 1rem; /* Beri jarak antara video/materi dan judul */
+      margin-bottom: 1rem; /* Jarak bawah judul */
+    }
+
+    /* Style untuk judul ketika di-highlight oleh hasil pencarian */
+    .menu-card h3.highlight {
+      background-color: yellow; /* Latar belakang kuning untuk menonjolkan hasil pencarian */
+      padding: 0.2rem; /* Padding untuk memberi ruang pada highlight */
+      border-radius: 5px; /* Membuat sudut melengkung untuk tampilan yang lebih lembut */
+    }
+
+    /* Responsive Design: Ukuran font yang lebih kecil pada layar yang lebih kecil */
+    @media (max-width: 768px) {
+      .menu-card h3 {
+        font-size: 1.4rem; /* Ukuran font lebih kecil untuk layar kecil */
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Navbar start -->
-  <nav class="navbar">
-      <img src="img/logo-kemedikbudristek.jpg" alt="Logo Kemendikbudristek">
+<!-- Navbar start -->
+<nav class="navbar">
+  <img src="img/logo-kemedikbudristek.jpg" alt="Logo Kemendikbudristek">
 
-    <div class="navbar-nav">
-      <a href="#about">Tujuan Pembelajaran</a>
-      <a href="#video-menu">Video Materi</a>
-      <a href="#materi-menu">Materi</a>
-      <a href="#products">Quiz</a>
-      <a href="#referensi">Referensi</a>
-    </div>
+  <div class="navbar-nav">
+    <a href="#about">Tujuan Pembelajaran</a>
+    <a href="#video-menu">Video Materi</a>
+    <a href="#materi-menu">Materi</a>
+    <a href="#products">Quiz</a>
+    <a href="#referensi">Referensi</a>
+  </div>
 
-    <div class="navbar-extra">
-      <a href="#" id="search-button"><i data-feather="search"></i></a>
-      <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-    </div>
+  <div class="navbar-extra">
+    <a href="#" id="toggle-search-form"><i data-feather="search"></i></a> <!-- Tombol untuk toggle form pencarian -->
+    <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+  </div>
 
-    <!-- Search Form start -->
-    <div class="search-form">
-      <input type="search" id="search-box" placeholder="search here...">
-      <label for="search-box"><i data-feather="search"></i></label>
-    </div>
-    <!-- Search Form end -->
+  <!-- Search Form start -->
+  <div class="search-form">
+    <input type="search" id="search-box" placeholder="Cari materi/video pembelajaran di sini..."> <!-- Input pencarian -->
+    <a href="#" id="search-icon"><i data-feather="search"></i></a> <!-- Ikon pencarian -->
+  </div>
+  <p id="no-results" style="display: none; color: red;">Tidak ada hasil yang cocok dengan pencarian Anda.</p>
+  
+  <!-- Pesan jika tidak ada hasil pencarian -->
+</nav>
 
-  </nav>
-  <!-- Navbar end -->
+<!-- Navbar end -->
 
-  <!-- Hero Section start -->
+  <!-- video Section start -->
   <div class="video-container">
-    <video autoplay muted loop>
+    <video id="bumperVideo" autoplay muted loop>
         <source src="video/bumper-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-  </div>
+    <button id="muteUnmuteButton">Unmute</button>
+</div>
+
   <!-- About Section start -->
   <section id="about" class="about">
     <h2><span>Tujuan</span> Pembelajaran</h2>
@@ -84,91 +115,60 @@
   <!-- Menu Section start -->
   <section id="video-menu" class="menu">
     <h2><span>Video</span> Pembelajaran</h2>
-    <p>Sebelum mempelajari source code, perlu memahami beberapa konsep seperti program, apa itu bahasa pemrograman, dan bagaimana source code diterjemahkan ke dalam bahasa mesin.</p>
+    <p>Bagian ini menyediakan video pembelajaran yang dapat ditonton secara interaktif.</p>
 
     <div class="row">
       <div class="menu-card">
-        <!-- Embedding Canva Design -->
+        <!-- Video 1 -->
         <iframe loading="lazy" style="width: 100%; height: 400px; border: none;"
         src="https://www.youtube.com/embed/rKrfpT0GXn8?si=8AjIlNmWLehnnJGA" allowfullscreen="allowfullscreen" allow="fullscreen">
         </iframe>
+        <h3>Apa itu program ?</h3>
       </div>
       <div class="menu-card">
-        <!-- Embedding Canva Design -->
+        <!-- Video 2 -->
         <iframe loading="lazy" style="width: 100%; height: 400px; border: none;"
         src="https://www.youtube.com/embed/0a8PqXj6uZw?si=giroNFXheXH2mrzH" allowfullscreen="allowfullscreen" allow="fullscreen">
         </iframe>
+        <h3>Apa itu bahasa pemrograman ?</h3>
       </div>
       <div class="menu-card">
-        <!-- Embedding Canva Design -->
+        <!-- Video 3 -->
         <iframe loading="lazy" style="width: 100%; height: 400px; border: none;"
         src="https://www.youtube.com/embed/7GSv7nsRJZg?si=gc0QFMkQutCdupfC&amp" allowfullscreen="allowfullscreen" allow="fullscreen">
         </iframe>
+        <h3 style="font-size: 90%;">Bagaimana source code diterjemahkan ke dalam bahasa mesin ?</h3>
       </div>
     </div>
   </section>
   <!-- Menu Section end -->
-  <!-- Menu Section start -->
+
+  <!-- Materi Section start -->
   <section id="materi-menu" class="menu">
     <h2><span>Materi</span> Pembelajaran</h2>
-
+    <p>Dengan menyajikan materi dalam bentuk slide, bagian ini memungkinkan Anda untuk mengakses informasi dengan cepat, mengulang materi penting, atau membandingkan berbagai konsep.</p>
     <div class="row">
       <div class="menu-card">
-
-        <!-- Embedding Canva Design -->
+        <!-- Materi 1 -->
         <iframe loading="lazy" style="width: 100%; height: 400px; border: none;"
-        src="https://www.canva.com/design/DAGMkc2uhzs/1Lt1FePYCmXpq2kd6MWDCg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-      </iframe>
+        src="https://www.canva.com/design/DAGMkc2uhzs/1Lt1FePYCmXpq2kd6MWDCg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+        <h3>Apa itu program ?</h3>
       </div>
       <div class="menu-card">
-        <!-- Embedding Canva Design -->
-        
+        <!-- Materi 2 -->
         <iframe loading="lazy" style="width: 100%; height: 400px; border: none;"
-    src="https://www.canva.com/design/DAGM9MtQnh8/t1AmTftf7QlPS7Xof9q5xw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
+        src="https://www.canva.com/design/DAGM9MtQnh8/t1AmTftf7QlPS7Xof9q5xw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+        <h3>Apa itu bahasa pemrograman ?</h3>
       </div>
       <div class="menu-card">
-        <!-- Embedding Canva Design -->
+        <!-- Materi 4 -->
         <iframe loading="lazy" style="width: 100%; height: 400px; border: none;"
-        src="https://www.canva.com/design/DAGMkc2uhzs/1Lt1FePYCmXpq2kd6MWDCg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-        </iframe>
-      </div>
-      <div class="menu-card">
-        <!-- Embedding Canva Design -->
-        <iframe loading="lazy" style="width: 100%; height: 400px; border: none;"
-        src="https://www.canva.com/design/DAGM9CnlniY/5V75ZR-guimCEnOBJTZcjw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-        </iframe>
+        src="https://www.canva.com/design/DAGM9CnlniY/5V75ZR-guimCEnOBJTZcjw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+        <h3 style="font-size: 90%;">Bagaimana source code diterjemahkan ke dalam bahasa mesin ?</h3>
       </div>
     </div>
   </section>
-  <!-- Menu Section end -->
-
-  <!-- Products Section start -->
-  <section class="products" id="products">
-    <h2><span>Quiz</span> Gamifikasi</h2>
-    <p>Di bawah ini adalah beberapa quiz interaktif untuk menguji pemahaman Anda.</p>
-  
-    <div class="row">
-      <!-- Quizizz 1 -->
-      <div class="product-card">
-        <iframe src="https://quizizz.com/join/quiz/XXXXXXXXX/embed" width="100%" height="400" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-      </div>
-      
-      <!-- Quizizz 2 -->
-      <div class="product-card">
-        <iframe src="https://quizizz.com/join/quiz/YYYYYYYYY/embed" width="100%" height="400" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-      </div>
-      
-      <!-- Quizizz 3 -->
-      <div class="product-card">
-        <iframe src="https://quizizz.com/join/quiz/ZZZZZZZZZ/embed" width="100%" height="400" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-      </div>
-      
-      <!-- Tambahkan quiz lainnya jika diperlukan -->
-    </div>
-  </section>
-  
-  <!-- Products Section end -->
+  <!-- Materi Section end -->
 
 <!-- Referensi Section start -->
 <section class="referensi" id="referensi">
@@ -204,10 +204,6 @@
   </div>
 </section>
 
-  
-  
-  
-  
   <!-- Footer start -->
   <footer>
     <div class="socials">
