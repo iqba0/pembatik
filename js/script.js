@@ -88,18 +88,31 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Mute/Unmute Video
-const video = document.getElementById('bumperVideo');
-const muteUnmuteButton = document.getElementById('muteUnmuteButton');
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('bumperVideo');
+  const muteUnmuteButton = document.getElementById('muteUnmuteButton');
 
-if (video && muteUnmuteButton) {
-  muteUnmuteButton.addEventListener('click', function() {
-    if (video.muted) {
-      video.muted = false; 
-      muteUnmuteButton.textContent = 'Mute';  
-    } else {
-      video.muted = true;  
-      muteUnmuteButton.textContent = 'Unmute';  
-    }
-  });
-}
+  // Periksa apakah elemen video dan tombol ditemukan
+  if (video && muteUnmuteButton) {
+    console.log("Video dan tombol ditemukan");
+
+    // Set teks tombol berdasarkan status awal video (muted atau tidak)
+    muteUnmuteButton.textContent = video.muted ? 'Unmute' : 'Mute';
+
+    muteUnmuteButton.addEventListener('click', function() {
+      if (video.muted) {
+        console.log("Mengaktifkan suara video");
+        video.muted = false; // Aktifkan suara video
+        muteUnmuteButton.textContent = 'Mute'; // Ubah teks tombol menjadi "Mute"
+      } else {
+        console.log("Mematikan suara video");
+        video.muted = true; // Matikan suara video
+        muteUnmuteButton.textContent = 'Unmute'; // Ubah teks tombol menjadi "Unmute"
+      }
+    });
+  } else {
+    console.error("Video atau tombol tidak ditemukan!");
+  }
+});
+
 

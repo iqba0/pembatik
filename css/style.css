@@ -44,16 +44,11 @@ body {
   z-index: 9999;
 }
 
-.navbar .navbar-logo {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-  font-style: italic;
+.navbar img {
+  width: 400px; /* Atur lebar gambar */
+  height: auto; /* Menyesuaikan tinggi secara proporsional */
 }
 
-.navbar .navbar-logo span {
-  color: var(--primary);
-}
 
 .navbar .navbar-nav a {
   color: #fff;
