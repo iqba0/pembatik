@@ -28,7 +28,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.4rem 7%;
-  border-radius: 20px;
   background-color: rgba(1, 1, 1, 0.8);
   border-bottom: 1px solid #0c192e;
   position: fixed;
@@ -38,8 +37,9 @@ body {
   z-index: 9999;
 
   /* Hanya membulatkan bagian bawah */
- border-radius: 0 0 20px 20px;
+  border-radius: 0 0 20px 20px;
 }
+
  
 .navbar img {
   width: 300px; /* Adjust image width */
