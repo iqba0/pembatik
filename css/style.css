@@ -1,5 +1,5 @@
 :root {
-  --primary: #b6895b;
+  --primary: #30b5fb;
   --bg: #010101;
 }
 
@@ -36,7 +36,7 @@ body {
   padding: 1.4rem 7%;
   border-radius: 20px;
   background-color: rgba(1, 1, 1, 0.8);
-  border-bottom: 1px solid #513c28;
+  border-bottom: 1px solid #0c192e;
   position: fixed;
   top: 0;
   left: 0;
@@ -127,13 +127,23 @@ body {
 }
 
 
+/* Sesuaikan margin-top pada video-container */
 .video-container {
   position: relative;
   width: 100%; /* Video memenuhi lebar kontainer */
   max-width: 1280px; /* Batas maksimal lebar video */
-  margin: 0 auto; /* Memusatkan video pada halaman */
+  margin: 100px auto 0 auto; /* Menambahkan margin-top sesuai dengan tinggi navbar */
   padding: 10px;
+  border-bottom: 1px solid #0c192e;
 }
+
+/* Tambahkan ini jika ukuran navbar berubah pada ukuran layar tertentu */
+@media (max-width: 768px) {
+  .video-container {
+    margin-top: 120px; /* Sesuaikan jika navbar lebih besar pada layar kecil */
+  }
+}
+
 
 video {
   width: 100%; /* Video akan menyesuaikan dengan lebar kontainer */
@@ -158,26 +168,6 @@ video {
       max-height: 360px; /* Maksimal tinggi video untuk perangkat lebih kecil */
   }
 }
-/* Hero Section */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0));
-  mask-image: linear-gradient(rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0));
-}
-
-.menu-card iframe {
-  width: 100%;
-  height: 400px; /* Sesuaikan tinggi sesuai kebutuhan */
-  border: none;
-  position: relative; /* Mengikuti alur layout halaman */
-}
-
 
 
 /* About Section */
@@ -204,187 +194,8 @@ video {
   color: var(--primary);
 }
 
-.about .row {
-  display: flex;
-}
-
-.about .row .about-img {
-  flex: 1 1 45rem;
-}
-
-.about .row .about-img img {
-  width: 100%;
-  -webkit-mask-image: url('../img/menu/splash.svg');
-  -webkit-mask-size: 50%;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-}
-
-.about .row .content {
-  flex: 1 1 35rem;
-  padding: 0 1rem;
-}
-
-.about .row .content h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.about .row .content p {
-  margin-bottom: 0.8rem;
-  font-size: 1.3rem;
-  font-weight: 100;
-  line-height: 1.6;
-}
-
-/* Menu Section */
-.menu h2,
-.products h2,
-.contact h2 {
-  margin-bottom: 1rem;
-}
-.menu p,
-.products p,
-.contact p {
-  text-align: center;
-  max-width: 30rem;
-  margin: auto;
-  font-weight: 100;
-  line-height: 1.6;
-}
-
-.menu .row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 5rem;
-  justify-content: center;
-}
-
-.menu .row .menu-card {
-  text-align: center;
-  padding-bottom: 4rem;
-}
-
-.menu .row .menu-card img {
-  border-radius: 50%;
-  width: 80%;
-}
-
-.menu .row .menu-card .menu-card-title {
-  margin: 1rem auto 0.5rem;
-}
-.menu .row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Membuat kolom yang responsif */
-  gap: 1.5rem; /* Jarak antar kartu */
-}
-
-.menu-card {
-  position: relative;
-  padding: 1rem;
-  background-color: #222;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.menu-card iframe {
-  width: 100%;
-  height: 400px; /* Sesuaikan tinggi sesuai kebutuhan */
-  border: none;
-  border-radius: 8px; /* Sudut melengkung untuk iframe */
-}
-
 
 /* Products Section */
-.products .row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 1.5rem;
-  margin-top: 4rem;
-}
-
-.products .product-card {
-  text-align: center;
-  border: 1px solid #666;
-  padding: 2rem;
-}
-
-.products .product-icons {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.products .product-icons a {
-  width: 4rem;
-  height: 4rem;
-  color: #fff;
-  margin: 0.3rem;
-  border: 1px solid #666;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.products .product-icons a:hover {
-  background-color: var(--primary);
-  border: 1px solid var(--primary);
-}
-
-.products .product-image {
-  padding: 1rem 0;
-}
-
-.products .product-image img {
-  height: 25rem;
-}
-
-.products .product-content h3 {
-  font-size: 2rem;
-}
-
-.products .product-stars {
-  font-size: 1.7rem;
-  padding: 0.8rem;
-  color: var(--primary);
-}
-
-.products .product-stars .star-full {
-  fill: var(--primary);
-}
-
-.products .product-price {
-  font-size: 1.3rem;
-  font-weight: bold;
-}
-
-.products .product-price span {
-  text-decoration: line-through;
-  font-weight: lighter;
-  font-size: 1rem;
-}
-
-.products .row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Mengatur agar kolom responsif */
-  gap: 1.5rem; /* Jarak antar quiz card */
-}
-
-.product-card {
-  text-align: center;
-  padding: 1rem;
-  background-color: #222;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.product-card iframe {
-  width: 100%;
-  height: 400px; /* Atur tinggi sesuai kebutuhan */
-  border: none;
-  border-radius: 8px; /* Memberikan efek sudut melengkung */
-}
 
 
 /* Footer */
@@ -426,76 +237,6 @@ footer .credit a {
   color: var(--bg);
   font-weight: 700;
 }
-
-/* Modal Box */
-/* Item Detail */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.modal-container {
-  position: relative;
-  background-color: #fefefe;
-  color: var(--bg);
-  margin: 15% auto;
-  padding: 1.2rem;
-  border: 1px solid #666;
-  width: 80%;
-  animation: animateModal 0.5s;
-}
-
-/* Modal Animation */
-@keyframes animateModal {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
-}
-
-.modal-container .close-icon {
-  position: absolute;
-  right: 1rem;
-}
-
-.modal-content {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.modal-content img {
-  height: 20rem;
-  margin-right: 2rem;
-  margin-bottom: 2rem;
-}
-
-.modal-content p {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-  margin-top: 1.2rem;
-}
-
-.modal-content a {
-  display: flex;
-  gap: 1rem;
-  width: 12rem;
-  background-color: var(--primary);
-  color: #fff;
-  margin-top: 1rem;
-  padding: 1rem 1.6rem;
-}
-
 /* Media Queries */
 /* Laptop */
 @media (max-width: 1366px) {
@@ -549,118 +290,4 @@ footer .credit a {
     right: 2rem;
   }
 
-  .about .row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
   
-  .about .about-img {
-    flex: 1 1 45%; /* Kolom kiri untuk iframe */
-  }
-  
-  .about .about-img iframe {
-    width: 100%;
-    height: 400px; /* Sesuaikan tinggi sesuai kebutuhan */
-    border: none;
-    border-radius: 8px; /* Membuat sudut iframe melengkung */
-  }
-  
-  .about .content {
-    flex: 1 1 45%; /* Kolom kanan untuk deskripsi */
-  }
-  
-  .about .content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-  
-  .about .content p {
-    margin-bottom: 0.8rem;
-    font-size: 1.3rem;
-    line-height: 1.6;
-  }
-  
-
-  .referensi {
-    padding: 8rem 7% 4rem; /* Jarak yang seimbang */
-    background-color: var(--bg); /* Konsisten dengan latar belakang halaman */
-    color: #fff;
-    text-align: center; /* Memposisikan heading di tengah */
-  }
-  
-  .referensi h2 {
-    text-align: center;
-    font-size: 2.6rem;
-    margin-bottom: 3rem;
-  }
-  
-  .referensi h2 span {
-    color: var(--primary); /* Warna aksen sesuai tema */
-  }
-  
-  .referensi p {
-    text-align: center;
-    max-width: 40rem;
-    margin: 0 auto 3rem;
-    font-weight: 100;
-    line-height: 1.6;
-  }
-  
-  .referensi .row {
-    display: flex; /* Gunakan flexbox untuk memusatkan elemen */
-    flex-wrap: wrap;
-    justify-content: center; /* Memastikan item berada di tengah */
-    gap: 2rem; /* Jarak antar referensi */
-  }
-  
-  .referensi-item {
-    background-color: #222; /* Warna latar belakang item */
-    padding: 2rem;
-    border-radius: 8px; /* Membuat sudut melengkung */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus */
-    transition: transform 0.3s ease;
-    max-width: 400px; /* Membatasi lebar agar rapi */
-    text-align: justify; /* Justifikasi teks di dalam referensi */
-  }
-  
-  .referensi-item:hover {
-    transform: translateY(-5px); /* Efek hover untuk mempercantik */
-  }
-  
-  .referensi-item h4 {
-    font-size: 1.8rem;
-    color: #fff;
-    margin-bottom: 1rem;
-    text-align: center; /* Heading di pusat */
-  }
-  
-  .referensi-item p {
-    font-size: 1.3rem;
-    color: #ccc; /* Warna teks yang lembut */
-    line-height: 1.6;
-    text-align: justify; /* Justifikasi teks konten */
-  }
-  
-  .referensi-item a {
-    color: var(--primary); /* Warna tautan sesuai tema */
-    text-decoration: none;
-  }
-  
-  .referensi-item a:hover {
-    text-decoration: underline; /* Efek hover untuk tautan */
-  }
-  
-  
-
-  .modal-content {
-    flex-wrap: wrap;
-  }
-}
-
-/* Mobile Phone */
-@media (max-width: 450px) {
-  html {
-    font-size: 55%;
-  }
-}

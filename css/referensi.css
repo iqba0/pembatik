@@ -1,0 +1,66 @@
+.referensi {
+    padding: 8rem 7% 4rem;
+    background-color: var(--bg);
+    color: #fff;
+    text-align: center;
+  }
+  
+  .referensi h2 {
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+  }
+  
+  .referensi h2 span {
+    color: var(--primary);
+  }
+  
+  .referensi p {
+    max-width: 40rem;
+    margin: 0 auto 3rem;
+    font-weight: 100;
+    line-height: 1.6;
+  }
+  
+  .referensi .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .referensi-item {
+    background-color: #222;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: justify;
+    transition: transform 0.3s ease;
+  }
+  
+  .referensi-item:hover {
+    transform: translateY(-5px); /* Efek hover */
+  }
+  
+  .referensi-item h4 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .referensi-item p {
+    font-size: 1.3rem;
+    color: #ccc;
+    line-height: 1.6;
+  }
+  
+  .referensi-item a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  
+  .referensi-item a:hover {
+    text-decoration: underline;
+  }
+  
