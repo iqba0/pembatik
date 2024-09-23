@@ -35,15 +35,12 @@ body {
   left: 0;
   right: 0;
   z-index: 9999;
-
-  /* Hanya membulatkan bagian bawah */
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 20px 20px; /* Membulatkan bagian bawah */
 }
 
- 
 .navbar img {
-  width: 300px; /* Adjust image width */
-  height: auto; /* Maintain proportional height */
+  width: 300px;
+  height: auto;
 }
 
 .navbar .navbar-nav a {
@@ -269,51 +266,62 @@ footer .credit a {
   font-weight: 700;
 }
 
-/* Media Queries */
-/* Laptop */
-@media (max-width: 1366px) {
-  html {
-    font-size: 75%;
-  }
-}
-
-/* Tablet */
-@media (max-width: 758px) {
-  html {
-    font-size: 62.5%;
-  }
-
+/* Media Queries untuk layar dengan lebar maksimal 900px */
+@media (max-width: 900px) {
+  /* Tampilkan tombol hamburger dan sembunyikan navbar link */
   #hamburger-menu {
     display: inline-block;
+    font-size: 2rem;
+    cursor: pointer;
   }
 
   .navbar .navbar-nav {
-    position: absolute;
-    top: 100%;
-    right: -100%;
-    background-color: #fff;
-    width: 30rem;
-    height: 100vh;
-    transition: 0.3s;
+    display: none;
   }
 
+  /* Ketika tombol hamburger diklik, tampilkan menu */
   .navbar .navbar-nav.active {
+    display: flex;
+    position: absolute;
+    top: 100%;
     right: 0;
+    background-color: var(--bg);
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
   }
 
   .navbar .navbar-nav a {
-    color: var(--bg);
-    display: block;
-    margin: 1.5rem;
-    padding: 0.5rem;
+    color: white;
     font-size: 2rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    text-align: center;
   }
 
-  .navbar .navbar-nav a::after {
-    transform-origin: 0 0;
+  .navbar .navbar-nav a:hover {
+    background-color: var(--primary);
+    color: var(--bg);
   }
 
-  .navbar .navbar-nav a:hover::after {
-    transform: scaleX(0.2);
+  /* Ubah ukuran ikon hamburger */
+  #hamburger-menu i {
+    font-size: 2rem;
+    color: white;
+  }
+}
+
+/* Ukuran tombol hamburger di layar lebih kecil (max 500px) */
+@media (max-width: 500px) {
+  #hamburger-menu {
+    font-size: 1.8rem;
+  }
+
+  .navbar .navbar-nav a {
+    font-size: 1.8rem;
+    margin: 1rem 0;
   }
 }
