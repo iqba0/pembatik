@@ -1,11 +1,9 @@
 // Ambil elemen video dan tombol mute/unmute
-// Ambil elemen video dan tombol mute/unmute
 const video = document.getElementById('bumperVideo');
 const muteUnmuteButton = document.getElementById('muteUnmuteButton');
 
 // Pastikan elemen video dan tombol mute/unmute ada sebelum menambahkan event listener
 if (video && muteUnmuteButton) {
-  // Fungsi untuk mute/unmute video saat tombol diklik
   muteUnmuteButton.addEventListener('click', function() {
     if (video.muted) {
       video.muted = false;  // Mengaktifkan suara video
@@ -20,16 +18,13 @@ if (video && muteUnmuteButton) {
   // Fungsi untuk mengecek apakah video berada di viewport
   function isVideoInView() {
     const rect = video.getBoundingClientRect();
-    // Pastikan sebagian besar video masih terlihat di layar
-    return (
-      rect.top < window.innerHeight && rect.bottom > 0
-    );
+    return rect.top < window.innerHeight && rect.bottom > 0; // Cek apakah video masih terlihat
   }
 
   // Event listener untuk pause/play video saat scroll
   window.addEventListener('scroll', function () {
     if (isVideoInView()) {
-      video.play();  // Play video jika masih terlihat di viewport
+      video.play();  // Play video jika masih terlihat
     } else {
       video.pause();  // Pause video jika keluar dari viewport
     }
@@ -40,10 +35,10 @@ if (video && muteUnmuteButton) {
 }
 
 // Toggle class active untuk search form
-const toggleSearchFormButton = document.querySelector('#toggle-search-form');  
-const searchForm = document.querySelector('.search-form');  
-const searchBox = document.querySelector('#search-box');  
-const searchIcon = document.querySelector('#search-icon'); 
+const toggleSearchFormButton = document.querySelector('#toggle-search-form');
+const searchForm = document.querySelector('.search-form');
+const searchBox = document.querySelector('#search-box');
+const searchIcon = document.querySelector('#search-icon');
 const hamburgerMenu = document.getElementById('hamburger-menu');
 const navbarNav = document.querySelector('.navbar-nav');
 
@@ -57,15 +52,15 @@ if (toggleSearchFormButton && searchForm) {
   });
 }
 
-// Klik di luar search form untuk menutup dan reset tampilan semua elemen
+// Klik di luar search form dan hamburger menu untuk menutup dan reset tampilan semua elemen
 document.addEventListener('click', function (e) {
-  // Klik di luar search form untuk reset tampilan semua elemen
+  // Tutup search form jika klik di luar
   if (searchForm && !searchForm.contains(e.target) && !toggleSearchFormButton.contains(e.target)) {
     searchForm.classList.remove('active');
-    resetSearchResults();  // Tampilkan kembali semua elemen
+    resetSearchResults();  // Tampilkan kembali semua elemen yang disembunyikan oleh pencarian
   }
   
-  // Klik di luar hamburger menu untuk menutup navigasi
+  // Tutup hamburger menu jika klik di luar
   if (navbarNav && !navbarNav.contains(e.target) && !hamburgerMenu.contains(e.target)) {
     navbarNav.classList.remove('active');
   }
