@@ -1,5 +1,6 @@
 /* Container untuk .menu */
 .menu {
+  border-top: 1px solid #0c192e;
   padding: 8rem 7% 1.4rem;
   text-align: center;
 }
@@ -35,7 +36,7 @@
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 100%;
-  min-height: 400px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -29,7 +29,7 @@ body {
   align-items: center;
   padding: 1.4rem 7%;
   background-color: rgba(1, 1, 1, 0.8);
-  border-bottom: 1px solid #0c192e;
+  border-bottom: solid #0c192e;
   position: fixed;
   top: 0;
   left: 0;
@@ -145,7 +145,6 @@ body {
   max-width: 1280px;
   margin: 100px auto 0;
   padding: 10px;
-  border-bottom: 1px solid #0c192e;
 }
 
 #bumperVideo {
@@ -228,7 +227,8 @@ video {
 
 /* Footer */
 footer {
-  background-color: var(--primary);
+  border-top: 1px solid #fff;
+  background-color: #010101;
   text-align: center;
   padding: 1rem 0 3rem;
   margin-top: 3rem;
@@ -245,7 +245,7 @@ footer .socials a {
 
 footer .socials a:hover,
 footer .links a:hover {
-  color: var(--bg);
+  color: var(--primary);
 }
 
 footer .links {
