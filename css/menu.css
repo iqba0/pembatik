@@ -7,13 +7,13 @@
 
 /* Judul di dalam .menu */
 .menu h2 {
-  font-size: 2.6rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
 }
 
 /* Paragraf di dalam .menu */
 .menu p {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   line-height: 1.8;
   margin: 0 auto 3rem;
   max-width: 800px;
@@ -60,7 +60,7 @@
 
 /* Judul konten di bawah video atau materi */
 .menu-card h3 {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #fff !important;
   text-align: center;
