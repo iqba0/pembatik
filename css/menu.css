@@ -1,14 +1,15 @@
-/* Container untuk .menu */
+/* Container untuk judul dan grid */
 .menu {
   border-top: 1px solid #0c192e;
   padding: 8rem 7% 1.4rem;
   text-align: center;
 }
 
-/* Judul di dalam .menu */
+/* Jarak vertikal antara h2 dan elemen grid di bawahnya */
 .menu h2 {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
 }
 
 /* Paragraf di dalam .menu */
@@ -24,41 +25,52 @@
 /* Container grid untuk kartu (menu-card) */
 .menu .row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid responsif */
   gap: 1.5rem;
+  overflow: hidden;
 }
 
-/* Kartu individual (menu-card) */
+/* Kartu individual (menu-card) dengan rasio 1:1 dan overlay gelap */
 .menu-card {
   position: relative;
-  padding: 1rem;
   background-color: #222;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 100%;
-  min-height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 1 / 1; /* Menjaga rasio 1:1 */
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  min-height: 300px; /* Tambahkan tinggi minimum untuk stabilitas layout */
 }
 
+/* Tambahkan overlay gelap pada iframe */
+.menu-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Gelap transparan */
+  z-index: 5; /* Letakkan di atas iframe, di bawah teks */
+  pointer-events: none; /* Tidak menghalangi interaksi */
+}
+
+/* Hover effect: overlay menghilang */
+.menu-card:hover::after {
+  background-color: rgba(0, 0, 0, 0); /* Overlay menghilang saat di-hover */
+}
+
+/* Hover effect untuk keseluruhan card */
 .menu-card:hover {
-  transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Iframe di dalam .menu-card dengan aspect ratio 4:3 */
-.menu-card iframe {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3; /* Aspect ratio 4:3 */
-  border: none;
-  border-radius: 8px;
-}
-
-/* Judul konten di bawah video atau materi */
+/* Teks h3 di dalam menu-card berada di atas iframe */
 .menu-card h3 {
   font-size: 1.2rem;
   font-weight: 600;
@@ -66,37 +78,198 @@
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Background semi-transparan untuk teks */
+  padding: 0.5rem 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10; /* Pastikan berada di atas overlay dan iframe */
 }
 
-/* Highlight judul hasil pencarian */
-.menu-card h3.highlight {
-  background-color: yellow;
-  padding: 0.2rem;
-  border-radius: 5px;
+/* Iframe di dalam .menu-card dengan rasio 1:1 */
+.menu-card iframe {
+  width: 100%;
+  height: 100%; /* Mengisi penuh elemen kartu dengan rasio 1:1 */
+  border: none;
+  border-radius: 8px;
+  z-index: 1;
+  position: static; /* Atur ke static untuk menghindari masalah layout */
+  transform: none; /* Pastikan tidak ada transformasi */
+  object-fit: cover; /* Agar isi iframe tidak merubah ukuran */
 }
 
-/* Responsive Design */
+/* Responsif */
 
 /* Ukuran font lebih kecil di layar dengan lebar maksimal 768px */
 @media (max-width: 768px) {
-  .menu-card h3 {
-    font-size: 1.4rem;
+  .menu h2 {
+    font-size: 1.6rem;
+    margin-bottom: 2.5rem;
   }
+
+  .menu p {
+    font-size: 1rem;
+  }
+
+  .menu-card h3 {
+    font-size: 1rem;
+  }
+
   .menu .row {
-    grid-template-columns: repeat(2, 1fr); /* 2 kolom pada layar sedang */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 
 /* Layar lebih kecil dengan lebar maksimal 600px */
 @media (max-width: 600px) {
-  .menu .row {
-    grid-template-columns: 1fr; /* 1 kolom pada layar kecil */
+  .menu h2 {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .menu p {
+    font-size: 0.9rem;
+  }
+
+  .menu-card h3 {
+    font-size: 1rem;
+  }
+
+  .menu-card iframe {
+    height: 100%;
   }
 }
 
-/* Layar besar */
-@media (min-width: 1024px) {
-  .menu .row {
-    grid-template-columns: repeat(3, 1fr); /* 3 kolom pada layar besar */
+/* Layar sangat kecil dengan lebar maksimal 400px */
+@media (max-width: 400px) {
+  .menu h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
   }
+
+  .menu p {
+    font-size: 0.8rem;
+  }
+
+  .menu-card h3 {
+    font-size: 0.9rem;
+  }
+
+  .menu-card iframe {
+    height: 100%;
+  }
+}
+
+/* Styling untuk elemen link */
+.menu-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu-card a:hover {
+  color: #ffa500;
+}
+
+/* bagian tugas */
+/* Container grid untuk kartu (menu-card) di bagian latihan */
+#tugas .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid responsif */
+  gap: 1.5rem;
+}
+
+/* Kartu individual (menu-card) di bagian latihan */
+#tugas .menu-card {
+  position: relative;
+  padding: 1rem;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  min-height: 300px; /* Tambahkan tinggi minimum untuk stabilitas */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+#tugas .menu-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Iframe di dalam .menu-card untuk bagian latihan */
+#tugas .menu-card iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+  border-radius: 8px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover; /* Agar iframe tidak merubah ukuran mendadak */
+}
+
+/* Judul konten di bawah video atau materi di bagian latihan */
+#tugas .menu-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff !important;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsif */
+
+@media (max-width: 768px) {
+  #tugas .menu-card h3 {
+    font-size: 1.1rem;
+  }
+
+  #tugas .menu-card iframe {
+    height: 200px;
+  }
+
+  #tugas .row {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+/* Layar lebih kecil dengan lebar maksimal 600px */
+@media (max-width: 600px) {
+  #tugas .menu-card h3 {
+    font-size: 1rem;
+  }
+
+  #tugas .menu-card iframe {
+    height: 180px;
+  }
+}
+
+/* Layar sangat kecil dengan lebar maksimal 400px */
+@media (max-width: 400px) {
+  #tugas .menu-card h3 {
+    font-size: 0.9rem;
+  }
+
+  #tugas .menu-card iframe {
+    height: 150px;
+  }
+}
+h3.highlight {
+  background-color: yellow;  /* Contoh sorotan */
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.search-form {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: visibility 0s, opacity 0.3s ease;
+}
+
+.search-form.active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
 }

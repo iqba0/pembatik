@@ -12,23 +12,7 @@
     border-radius: 10px;
   }
   
-  #muteUnmuteButton {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #muteUnmuteButton:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-  }
-  
+
   video {
     width: 100%;
     height: auto;
