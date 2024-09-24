@@ -1,0 +1,22 @@
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin: 100px auto 0;
+    padding: 10px;
+  }
+  
+  #bumperVideo {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+
+  video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
